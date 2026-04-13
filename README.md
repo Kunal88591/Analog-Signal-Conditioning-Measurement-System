@@ -80,24 +80,27 @@ flowchart LR
 ```
 
 ```mermaid
+%%{init: {"theme": "base"}}%%
 mindmap
-	root(Analog Conditioning\nSoftware-First Repo)
-		Requirements
-			Bandwidth target
-			Gain + headroom
-			Noise reduction metric
-		Design
-			Amplifier stage
-			Active LPF
-			Component tolerances
-		Verification
-			Virtual datasets
-			Bode + fc
-			FFT noise band
-		Documentation
-			Error budget
-			Test plan
-			Risks + mitigations
+	root(Analog Conditioning\nSoftware-First Repo):::mm
+		Requirements:::mm
+			Bandwidth target:::mm
+			Gain + headroom:::mm
+			Noise reduction metric:::mm
+		Design:::mm
+			Amplifier stage:::mm
+			Active LPF:::mm
+			Component tolerances:::mm
+		Verification:::mm
+			Virtual datasets:::mm
+			Bode + f_c:::mm
+			FFT noise band:::mm
+		Documentation:::mm
+			Error budget:::mm
+			Test plan:::mm
+			Risks + mitigations:::mm
+
+classDef mm fill:#ffffff,color:#111827,stroke:#6b7280,stroke-width:1px;
 ```
 
 ## Circuit Design
