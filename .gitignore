@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.DS_Store
+
+# Generated outputs
+results/*
+!results/.gitkeep
+
+# Optional: uncomment to ignore local measurement files
+# data/*.csv
