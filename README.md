@@ -23,13 +23,7 @@ Physical hardware build is optional; the repo stands on its own as a software va
 
 ## Quick Start
 
-Hardware build:
-
-1. Wire the circuit using the pin-level instructions below.
-2. Power from a regulated 5 V supply.
-3. Verify DC gains and filter cutoff using the lab plan in [docs/04_test_plan.md](docs/04_test_plan.md).
-
-Data analysis:
+Software-only demo (recommended):
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -38,6 +32,20 @@ pip install -r requirements.txt
 # One-command demo (generates results/)
 MPLBACKEND=Agg python scripts/run_demo.py
 ```
+
+Outputs:
+
+- `results/demo.png`: input vs output (time) + spectra (FFT)
+- `results/bode.png`: sweep/Bode magnitude with extracted $f_c$
+- `results/synthetic_sweep.csv`: synthetic sweep data (example input)
+
+Note: `MPLBACKEND=Agg` forces matplotlib into a non-GUI backend so plots can be saved in headless environments (CI, containers, SSH).
+
+Hardware build (optional):
+
+1. Wire the circuit using the pin-level instructions below.
+2. Power from a regulated 5 V supply.
+3. Verify DC gains and filter cutoff using the lab plan in [docs/04_test_plan.md](docs/04_test_plan.md).
 
 ## What’s in this Repo
 
@@ -68,12 +76,12 @@ flowchart LR
 	A[Sensor signal\nLM35 or LDR divider] --> B[Gain stage\nNon-inverting op-amp]
 	B --> C[Active LPF\n2nd-order Sallen-Key]
 	C --> D[V_OUT\nADC / scope]
-	D --> E[Software validation\nFFT, Bode, fc]
+	D --> E[Software validation\nFFT, Bode, f_c]
 ```
 
 ```mermaid
 mindmap
-	root((Analog Conditioning\nSoftware-First Repo))
+	root(Analog Conditioning\nSoftware-First Repo)
 		Requirements
 			Bandwidth target
 			Gain + headroom
